@@ -16,6 +16,10 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            scroll-padding-top: 60px; /* Offset for sticky nav height */
+        }
         * {
             margin: 0;
             padding: 0;
@@ -71,7 +75,7 @@
             color: white;
             text-align: center;
             padding: 5rem 1rem;
-            margin-bottom: 5rem;
+            margin-bottom: 2rem; /* Reduced from 5rem */
             border-radius: 10px;
             position: relative;
             border: 1px solid #ddd;
@@ -102,11 +106,11 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         .section {
-            margin-bottom: 5rem;
+            margin-bottom: 2rem; /* Reduced from 5rem */
             padding: 2rem;
             border-radius: 10px;
             border: 1px solid #ddd;
-            opacity: 0; /* Initial state for animation */
+            opacity: 0;
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
         .section.visible {
@@ -115,10 +119,10 @@
             animation: fadeInUp 0.8s ease-out forwards;
         }
         .section:nth-child(odd) {
-            background-color: #fff3e0; /* Light orange for odd sections */
+            background-color: #fff3e0;
         }
         .section:nth-child(even) {
-            background-color: #fef5e7; /* Slightly darker yellow for even sections */
+            background-color: #fef5e7;
         }
         .section h2 {
             color: #c0392b;
@@ -171,6 +175,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
+            line-height: 1.5;
         }
         .cta-button:hover {
             background-color: #c0392b;
@@ -206,25 +211,120 @@
             }
         }
         @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 0;
+            }
             header h1 {
                 font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav {
+                padding: 0.5rem 0;
             }
             nav a {
                 margin: 0 0.5rem;
                 font-size: 0.9rem;
             }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
             .container {
                 padding: 1rem;
             }
+            .hero {
+                padding: 3rem 1rem;
+                margin-bottom: 1.5rem; /* Reduced from 4rem */
+            }
+            .hero::before {
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
             .section {
-                margin-bottom: 4rem;
+                margin-bottom: 1.5rem; /* Reduced from 4rem */
                 padding: 1.5rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+            .section p, .section ul {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            .services-grid, .why-choose-grid {
+                gap: 1.5rem;
+            }
+            .service-card, .why-choose-card {
+                padding: 1rem;
+            }
+            .service-card h3, .why-choose-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+            .why-choose-card i {
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                min-width: 120px;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #contact p {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+                line-height: 1.8;
+            }
+            .section.visible {
+                animation: fadeInUp 0.5s ease-out forwards;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            nav a {
+                margin: 0 0.3rem;
+                font-size: 0.8rem;
+            }
+            .hero {
+                padding: 2rem 0.8rem;
+                margin-bottom: 1rem; /* Reduced from 3rem */
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section {
+                margin-bottom: 1rem; /* Reduced from 3rem */
+                padding: 1rem;
+            }
+            .section h2 {
+                font-size: 1.3rem;
+            }
+            .section p, .section ul {
+                font-size: 0.9rem;
+            }
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+                min-width: 100px;
+                min-height: 40px;
             }
         }
     </style>
@@ -320,15 +420,15 @@
         const sections = document.querySelectorAll('.section');
         const observerOptions = {
             root: null,
-            threshold: 0.1 // Trigger when 10% of the section is visible
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    entry.target.style.animationDelay = `${index * 0.2}s`; // Staggered delay
-                    observer.unobserve(entry.target); // Stop observing once animated
+                    entry.target.style.animationDelay = `${index * 0.2}s`;
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
