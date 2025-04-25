@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QuangMinh&Co - Your trusted partner in logistics and trading.">
-    <meta name="keywords" content="QuangMinh, QuangMinh&Co, logistics, trading, transportation, supply chain">
-    <title>QuangMinh&Co - Logistics & Trading</title>
+    <meta name="description" content="QuangMinh&Co - Your trusted partner in international trading and business consulting in Vietnam.">
+    <meta name="keywords" content="QuangMinh, QuangMinh&Co, logistics, trading, business consulting, Vietnam, import, export">
+    <title>QuangMinh&Co - Global Trading & Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,10 +17,10 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fff8e1; /* Light yellow background for warmth */
+            background-color: #fff8e1;
         }
         header {
-            background: linear-gradient(to right, #ff4500, #ffa500); /* Red-orange to yellow-orange gradient */
+            background: linear-gradient(to right, #ff4500, #ffa500);
             color: white;
             text-align: center;
             padding: 2rem 0;
@@ -43,14 +44,14 @@
             z-index: 100;
         }
         nav a {
-            color: #c0392b; /* Deep red for links */
+            color: #c0392b;
             text-decoration: none;
             margin: 0 1.5rem;
             font-weight: bold;
             transition: color 0.3s;
         }
         nav a:hover {
-            color: #ff8c00; /* Orange on hover */
+            color: #ff8c00;
         }
         .container {
             max-width: 1100px;
@@ -58,10 +59,10 @@
             padding: 2rem;
         }
         .hero {
-            background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3a8dd22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 5rem 1rem;
             margin-bottom: 2rem;
             border-radius: 8px;
             position: relative;
@@ -73,7 +74,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Lighter overlay to complement warm colors */
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 8px;
             z-index: 1;
         }
@@ -82,19 +83,20 @@
             z-index: 2;
         }
         .hero h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         .section h3 {
-            color: #c0392b; /* Deep red for headings */
+            color: #c0392b;
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
@@ -105,9 +107,80 @@
             list-style: disc;
             margin-left: 2rem;
         }
+        .services-grid, .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card, .why-choose-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover, .why-choose-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h4 {
+            color: #ff8c00;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .why-choose-card i {
+            color: #ff8c00;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .why-choose-card h4 {
+            color: #c0392b;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact-form button {
+            background-color: #ff8c00;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #c0392b;
+        }
+        .map-embed {
+            margin-bottom: 2rem;
+        }
+        .map-embed iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
         .cta-button {
             display: inline-block;
-            background-color: #ff8c00; /* Orange button */
+            background-color: #ff8c00;
             color: white;
             padding: 0.8rem 1.5rem;
             border-radius: 5px;
@@ -116,19 +189,31 @@
             transition: background-color 0.3s;
         }
         .cta-button:hover {
-            background-color: #c0392b; /* Deep red on hover */
+            background-color: #c0392b;
         }
         #contact a:not(.cta-button) {
-            color: #c0392b; /* Deep red for contact links */
+            color: #c0392b;
             text-decoration: none;
             font-weight: bold;
         }
         #contact a:not(.cta-button):hover {
             text-decoration: underline;
-            color: #ff8c00; /* Orange on hover */
+            color: #ff8c00;
+        }
+        .add-on-section {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .add-on-section h4 {
+            color: #ff8c00;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
         footer {
-            background-color: #c0392b; /* Deep red footer */
+            background-color: #c0392b;
             color: white;
             text-align: center;
             padding: 1rem;
@@ -144,6 +229,9 @@
             }
             .hero h2 {
                 font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
             }
             .container {
                 padding: 1rem;
@@ -161,34 +249,113 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#why-choose-us">Why Choose Us</a>
         <a href="#contact">Contact</a>
     </nav>
     <div class="container">
         <div class="hero" id="home">
-            <h2>Streamline Your Supply Chain with QuangMinh&Co</h2>
-            <p>Delivering reliable logistics and trading solutions worldwide.</p>
-            <a href="#contact" class="cta-button">Get a Quote</a>
+            <h2>Global Trading. Local Expertise.</h2>
+            <p>Connecting businesses worldwide with quality goods and trusted consultancy from Vietnam.</p>
+            <a href="#services" class="cta-button">Explore Our Services</a>
+            <a href="#contact" class="cta-button">Contact Us</a>
         </div>
+
         <div class="section" id="about">
             <h3>About Us</h3>
-            <p>QuangMinh&Co is a leading logistics and trading company founded with a vision to optimize global supply chains. With years of expertise, we provide end-to-end solutions for transportation, warehousing, and international trade.</p>
+            <p><strong>Welcome to Quang Minh & Co Company Limited</strong></p>
+            <p>Established on January 23rd, 2025, by CEO Mrs. Linh Dang, Quang Minh & Co is proud to be a dynamic international trading and consultancy firm based in the heart of Hanoi, Vietnam.</p>
+            <p>From our headquarters at No. 113 Van Quan Street, Ha Dong District, we connect businesses across the globe — importing and exporting high-quality garments, textiles, building materials, and electric cargo from strategic markets such as Japan, the USA, Europe, Russia, Southeast Asia, and China.</p>
+            <p>But we’re more than just traders. We’re your trusted partners in Vietnam, offering expert consultancy services to help international companies set up operations, open offices, and thrive in a new market with confidence.</p>
+            <p>At Quang Minh & Co, we believe in building strong, lasting connections. With professionalism, integrity, and a personal touch, we’re here to deliver real value and make global business easier for you.</p>
+            <p><strong>Let’s connect — and grow together.</strong></p>
+            <p>📞 <strong>Contact us:</strong> <a href="tel:+84826778456">+84 826 778 456</a></p>
+            <p>Email: <a href="mailto:dangdieulinhbs94@gmail.com">dangdieulinhbs94@gmail.com</a></p>
         </div>
+
         <div class="section" id="services">
             <h3>Our Services</h3>
-            <ul>
-                <li><strong>Freight Forwarding:</strong> Seamless air, sea, and land transport solutions.</li>
-                <li><strong>Warehousing:</strong> Secure storage and inventory management.</li>
-                <li><strong>Customs Clearance:</strong> Hassle-free import/export documentation.</li>
-                <li><strong>Trading:</strong> Sourcing and supplying high-quality goods globally.</li>
-                <li><strong>Supply Chain Consulting:</strong> Tailored strategies to optimize operations.</li>
-            </ul>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>International Trading</h4>
+                    <p><strong>Import & Export:</strong> We handle seamless import and export of garments, textiles, building materials, and electric cargo across global markets.</p>
+                    <p><strong>Supply Chain Coordination:</strong> Streamlined logistics to ensure your goods move efficiently from source to destination.</p>
+                    <p><strong>Product Sourcing:</strong> We source high-quality products from trusted suppliers in Japan, the USA, Europe, and beyond.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Business Consulting</h4>
+                    <p><strong>Company Setup in Vietnam:</strong> Expert guidance to establish your business operations in Vietnam.</p>
+                    <p><strong>Factory Establishment:</strong> Support for setting up manufacturing facilities with local insights.</p>
+                    <p><strong>Local Market Insights:</strong> Deep knowledge of Vietnam’s market to help you succeed.</p>
+                </div>
+            </div>
         </div>
+
+        <div class="section" id="why-choose-us">
+            <h3>Why Choose Us</h3>
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <i class="fas fa-globe"></i>
+                    <h4>Global Network, Local Insights</h4>
+                    <p>We combine our global reach with deep understanding of the Vietnamese market.</p>
+                </div>
+                <div class="why-choose-card">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Transparent and Reliable Partner</h4>
+                    <p>Trust us to deliver with honesty and clarity in every step.</p>
+                </div>
+                <div class="why-choose-card">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Fast and Flexible Operations</h4>
+                    <p>We adapt quickly to meet your business needs with efficiency.</p>
+                </div>
+                <div class="why-choose-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Deep Knowledge of Vietnam’s Systems</h4>
+                    <p>Navigate regulations and business practices with our expertise.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="section" id="contact">
             <h3>Contact Us</h3>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
             <p>Email: <a href="mailto:dangdieulinhbs94@gmail.com">dangdieulinhbs94@gmail.com</a></p>
             <p>Phone: <a href="tel:+84826778456">+84 826 778 456</a></p>
             <p>Address: <a href="https://www.google.com/maps/place/113+V%C4%83n+Qu%C3%A1n,+H%C3%A0+%C4%90%C3%B4ng,+H%C3%A0+N%E1%BB%99i,+Vietnam" target="_blank">113 Van Quan Street, Van Quan, Ha Dong, Hanoi, Vietnam</a></p>
+            <div class="map-embed">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.305!2d105.784!3d20.979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDU4JzQ0LjQiTiAxMDXCsDQ3JzA0LjgiRQ!5e0!3m2!1sen!2s!4v1698765432109" allowfullscreen="" loading="lazy"></iframe>
+            </div>
             <a href="mailto:dangdieulinhbs94@gmail.com" class="cta-button">Reach Out</a>
+        </div>
+
+        <div class="section" id="add-ons">
+            <h3>Coming Soon</h3>
+            <div class="add-on-section">
+                <h4>Blog/News</h4>
+                <p>Stay updated with trade tips, import-export regulations, and success stories.</p>
+            </div>
+            <div class="add-on-section">
+                <h4>Gallery</h4>
+                <p>Explore our products, trade shows, and client factories through photos.</p>
+            </div>
+            <div class="add-on-section">
+                <h4>Client Testimonials</h4>
+                <p>Hear from our satisfied clients to build trust in our services.</p>
+            </div>
+            <div class="add-on-section">
+                <h4>Downloadables</h4>
+                <p>Access our company profile PDF and business setup checklist.</p>
+            </div>
         </div>
     </div>
     <footer>
