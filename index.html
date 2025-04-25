@@ -71,9 +71,10 @@
             color: white;
             text-align: center;
             padding: 5rem 1rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
+            margin-bottom: 5rem;
+            border-radius: 10px;
             position: relative;
+            border: 1px solid #ddd;
         }
         .hero::before {
             content: '';
@@ -83,7 +84,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
+            border-radius: 10px;
             z-index: 1;
         }
         .hero h2, .hero p, .hero a {
@@ -101,7 +102,23 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         .section {
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            opacity: 0; /* Initial state for animation */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .section:nth-child(odd) {
+            background-color: #fff3e0; /* Light orange for odd sections */
+        }
+        .section:nth-child(even) {
+            background-color: #fef5e7; /* Slightly darker yellow for even sections */
         }
         .section h2 {
             color: #c0392b;
@@ -178,6 +195,16 @@
             padding: 1rem;
             margin-top: 2rem;
         }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8rem;
@@ -194,6 +221,10 @@
             }
             .container {
                 padding: 1rem;
+            }
+            .section {
+                margin-bottom: 4rem;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -212,14 +243,14 @@
         <a href="#contact">Contact</a>
     </nav>
     <main class="container">
-        <section id="home" class="hero" aria-label="Hero Section">
+        <section id="home" class="hero section" aria-label="Hero Section">
             <h2>Global Trading. Local Expertise.</h2>
             <p>Connecting businesses worldwide with quality goods and trusted consultancy from Vietnam.</p>
             <a href="#services" class="cta-button">Explore Our Services</a>
             <a href="#contact" class="cta-button">Contact Us</a>
         </section>
 
-        <section id="about" aria-label="About Us Section">
+        <section id="about" class="section" aria-label="About Us Section">
             <h2>About Us</h2>
             <p><strong>Welcome to Quang Minh & Co Company Limited</strong></p>
             <p>Established on January 23rd, 2025, by CEO Mrs. Linh Dang, Quang Minh & Co is proud to be a dynamic international trading and consultancy firm based in the heart of Hanoi, Vietnam.</p>
@@ -229,7 +260,7 @@
             <p><strong>Let’s connect — and grow together.</strong></p>
         </section>
 
-        <section id="services" aria-label="Services Section">
+        <section id="services" class="section" aria-label="Services Section">
             <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
@@ -247,7 +278,7 @@
             </div>
         </section>
 
-        <section id="why-choose-us" aria-label="Why Choose Us Section">
+        <section id="why-choose-us" class="section" aria-label="Why Choose Us Section">
             <h2>Why Choose Us</h2>
             <div class="why-choose-grid">
                 <div class="why-choose-card">
@@ -273,7 +304,7 @@
             </div>
         </section>
 
-        <section id="contact" aria-label="Contact Us Section">
+        <section id="contact" class="section" aria-label="Contact Us Section">
             <h2>Contact Us</h2>
             <p>Email: <a href="mailto:dangdieulinhbs94@gmail.com">dangdieulinhbs94@gmail.com</a></p>
             <p>Phone: <a href="tel:+84826778456">+84 826 778 456</a></p>
@@ -284,5 +315,27 @@
     <footer>
         <p>© 2025 QuangMinh&Co. All rights reserved.</p>
     </footer>
+    <script>
+        // IntersectionObserver to trigger animation when sections come into view
+        const sections = document.querySelectorAll('.section');
+        const observerOptions = {
+            root: null,
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.animationDelay = `${index * 0.2}s`; // Staggered delay
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
